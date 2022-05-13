@@ -9,8 +9,25 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let image = UIImage(named: "0")
+        imageView.image = image
+        // Do any additional setup after loading the view.
+    }
     
+    var imageArray: [UIImage] = [
+        UIImage(named: "0")!,
+        UIImage(named: "1")!,
+        UIImage(named: "2")!
+    ]
+    
+    @IBAction func OntapImage(_ sender: Any) {
+        performSegue(withIdentifier: "secondView", sender: nil)
+    }
+    
+    @IBOutlet weak var imageView: UIImageView!
     @IBAction func previousButton(_ sender: Any) {
         dispImageNo -= 1
         //表示している画像の番号をもとに画像を表示する
@@ -25,26 +42,67 @@ class ViewController: UIViewController {
     
     var dispImageNo = 0
     func displayImage() {
+        if dispImageNo < 0 {
+            dispImageNo = 2
+        }
         
-        let imageNameArray = [
-            "0",
-            "1",
-            "2"
-        ]
-        
+        if dispImageNo > 2 {
+            dispImageNo = 0
+        }
         //表示している画像の番号から名前を取り出し
-        let name = imageNameArray[dispImageNo]
-        
-        //画像を読み込み
-        let image = UIImage(named: name)
+        let name = imageArray[UIImage]
+        let image = UIImage(named: "name")
         
         imageView.image = image
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    //outletの接続
+    @IBOutlet weak var startButton: UIButton!
+    //配列に指定するindex番号を宣言
+    var nowIndex:Int = 0
+    
+    //スライドショーに使用するタイマーを宣言
+    var timer: Timer!
+    
+    //再生ボタンを押したときの処理
+    @IBAction func slideShowButton(_ sender: Any) {
+        if (timer == nil) {
+            //再生時の処理を実装
+            //タイマーをセットする
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
+            //ボタンの名前を停止に変える
+            startButton.setTitle("停止", for: .normal)
+        } else {
+            //停止時の処理を実装
+            //タイマーを停止する
+            timer.invalidate()
+            
+                //タイマーを削除しておく(timer.invalidate だけだとtimerがnilにならないため)
+            timer = nil
+            
+            //ボタンの名前を再生に直しておく
+            startButton.setTitle("再生", for: .normal)
+        }
     }
+    
+    @objc func changeImage() {
+        //indexを増やして表示する画像を切り替える
+        nowIndex += 1
+        
+        //indexが表示予定の画像の数と同じ場合
+        if (nowIndex == dispImageNo.count) {
+            //indexを一番最初の数字に戻す
+            nowIndex = 0
+        }
+        //indexの画像をstoryboardの画像にセットする
+        imageView.image = dispImageNo[nowIndex]
+    }
+    
+    @IBAction func onTapImage(_ sender: Any) {
+        //セグエを使用して画像を遷移
+        performSegue(withIdentifier: "result", sender: nil)
+    }
+    
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
         //他の画面から segue を使って戻ってきた時に呼ばれる
     }
