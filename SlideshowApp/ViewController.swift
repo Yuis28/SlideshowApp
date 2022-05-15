@@ -17,15 +17,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    var imageArray: [UIImage] = [
-        UIImage(named: "0")!,
-        UIImage(named: "1")!,
-        UIImage(named: "2")!
+    var imageArray: [String] = [
+         "0","1","2"
     ]
-    
-    @IBAction func OntapImage(_ sender: Any) {
-        performSegue(withIdentifier: "secondView", sender: nil)
-    }
     
     @IBOutlet weak var imageView: UIImageView!
     @IBAction func previousButton(_ sender: Any) {
@@ -50,8 +44,8 @@ class ViewController: UIViewController {
             dispImageNo = 0
         }
         //表示している画像の番号から名前を取り出し
-        let name = imageArray[UIImage]
-        let image = UIImage(named: "name")
+        let name = imageArray[dispImageNo]
+        let image = UIImage(named: name)
         
         imageView.image = image
     }
@@ -90,17 +84,22 @@ class ViewController: UIViewController {
         nowIndex += 1
         
         //indexが表示予定の画像の数と同じ場合
-        if (nowIndex == dispImageNo.count) {
+        if (nowIndex == imageArray.count) {
             //indexを一番最初の数字に戻す
             nowIndex = 0
         }
         //indexの画像をstoryboardの画像にセットする
-        imageView.image = dispImageNo[nowIndex]
+        imageView.image = UIImage(named:imageArray[nowIndex])
     }
     
     @IBAction func onTapImage(_ sender: Any) {
         //セグエを使用して画像を遷移
+        
         performSegue(withIdentifier: "result", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let secondViewController = segue.destination as! secondViewController
+        secondViewController.image = imageView.image
     }
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {

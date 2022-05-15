@@ -41,10 +41,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZS7-AO-BgP">
-                                <rect key="frame" x="318" y="505" width="67" height="31"/>
+                                <rect key="frame" x="325" y="505" width="53" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="再生"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqh-Ku-6xl">
                                 <rect key="frame" x="181" y="505" width="53" height="31"/>
@@ -101,7 +101,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="ooO-Ra-2I7"/>
                     <connections>
-                        <outlet property="image" destination="uQc-Nf-QFG" id="ifc-hj-byn"/>
                         <outlet property="imageView" destination="uQc-Nf-QFG" id="qqf-Yc-wzf"/>
                     </connections>
                 </viewController>

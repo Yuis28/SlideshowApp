@@ -9,11 +9,11 @@ import UIKit
 
 class secondViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
-    var image = 0
-    
+    var image: UIImage!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        imageView.image = image
     }
     
 
