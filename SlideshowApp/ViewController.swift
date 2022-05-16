@@ -59,25 +59,26 @@ class ViewController: UIViewController {
     var timer: Timer!
     
     //再生ボタンを押したときの処理
-    @IBAction func slideShowButton(_ sender: Any) {
+    @IBAction func startButton(_ sender: Any) {
         if (timer == nil) {
-            //再生時の処理を実装
-            //タイマーをセットする
+                //再生時の処理を実装
+                //タイマーをセットする
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
-            //ボタンの名前を停止に変える
+                //ボタンの名前を停止に変える
             startButton.setTitle("停止", for: .normal)
         } else {
-            //停止時の処理を実装
-            //タイマーを停止する
-            timer.invalidate()
-            
-                //タイマーを削除しておく(timer.invalidate だけだとtimerがnilにならないため)
-            timer = nil
-            
-            //ボタンの名前を再生に直しておく
-            startButton.setTitle("再生", for: .normal)
-        }
+                //停止時の処理を実装
+                //タイマーを停止する
+                timer.invalidate()
+                
+                    //タイマーを削除しておく(timer.invalidate だけだとtimerがnilにならないため)
+                timer = nil
+                
+                //ボタンの名前を再生に直しておく
+                startButton.setTitle("再生", for: .normal)
+            }
     }
+    
     
     @objc func changeImage() {
         //indexを増やして表示する画像を切り替える

@@ -45,6 +45,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="再生"/>
+                                <connections>
+                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kLc-Ui-6kh"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqh-Ku-6xl">
                                 <rect key="frame" x="181" y="505" width="53" height="31"/>
@@ -60,7 +63,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="ZS7-AO-BgP" id="mt8-Nh-17C"/>
                         <outlet property="startButton" destination="kt4-08-zMa" id="Yld-Pq-dE0"/>
                         <segue destination="lJk-Ce-C1H" kind="show" identifier="result" id="bAf-Hz-lzV"/>
                     </connections>
