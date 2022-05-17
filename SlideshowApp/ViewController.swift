@@ -11,17 +11,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let image = UIImage(named: "0")
-        imageView.image = image
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet weak var imageView: UIImageView!
     var imageArray: [String] = [
-         "0","1","2"
+         "image1.jpeg","image2.jpeg","image3.jpeg"
     ]
     
-    @IBOutlet weak var imageView: UIImageView!
     @IBAction func previousButton(_ sender: Any) {
         dispImageNo -= 1
         //表示している画像の番号をもとに画像を表示する
@@ -31,8 +28,8 @@ class ViewController: UIViewController {
         dispImageNo += 1
         displayImage()
     }
-    @IBAction func startStopButton(_ sender: Any) {
-    }
+    
+    @IBOutlet weak var startButton: UIButton!
     
     var dispImageNo = 0
     func displayImage() {
@@ -51,7 +48,6 @@ class ViewController: UIViewController {
     }
     
     //outletの接続
-    @IBOutlet weak var startButton: UIButton!
     //配列に指定するindex番号を宣言
     var nowIndex:Int = 0
     
@@ -93,14 +89,10 @@ class ViewController: UIViewController {
         imageView.image = UIImage(named:imageArray[nowIndex])
     }
     
-    @IBAction func onTapImage(_ sender: Any) {
-        //セグエを使用して画像を遷移
-        
-        performSegue(withIdentifier: "result", sender: nil)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        let secondViewController = segue.destination as! secondViewController
+    @IBAction func nextImage(_ sender: Any) {
+        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as! secondViewController
         secondViewController.image = imageView.image
+        self.present(secondViewController, animated: true, completion: nil)
     }
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
