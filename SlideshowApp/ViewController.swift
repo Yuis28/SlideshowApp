@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         if (timer == nil) {
                 //再生時の処理を実装
                 //タイマーをセットする
-            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
                 //ボタンの名前を停止に変える
             startButton.setTitle("停止", for: .normal)
         } else {
@@ -89,6 +89,15 @@ class ViewController: UIViewController {
         imageView.image = UIImage(named:imageArray[nowIndex])
     }
     
+    @IBAction func tapImage(_ sender: Any) {
+        performSegue(withIdentifier: "result", sender: nil)
+          }
+           
+          override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+              let secondViewController = segue.destination as! secondViewController
+              secondViewController.image = imageView.image
+    }
+    
     @IBAction func nextImage(_ sender: Any) {
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as! secondViewController
         secondViewController.image = imageView.image
@@ -101,4 +110,3 @@ class ViewController: UIViewController {
 
 
 }
-
