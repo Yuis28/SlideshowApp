@@ -88,20 +88,14 @@ class ViewController: UIViewController {
         //indexの画像をstoryboardの画像にセットする
         imageView.image = UIImage(named:imageArray[nowIndex])
     }
-    
     @IBAction func tapImage(_ sender: Any) {
         performSegue(withIdentifier: "result", sender: nil)
-          }
+    }
+    
            
           override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
               let secondViewController = segue.destination as! secondViewController
               secondViewController.image = imageView.image
-    }
-    
-    @IBAction func nextImage(_ sender: Any) {
-        let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController") as! secondViewController
-        secondViewController.image = imageView.image
-        self.present(secondViewController, animated: true, completion: nil)
     }
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {

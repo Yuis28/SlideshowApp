@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pne-UR-aGf">
-                                <rect key="frame" x="20" y="506" width="53" height="31"/>
+                                <rect key="frame" x="20" y="505" width="53" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="戻る"/>
@@ -26,7 +26,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="image1.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="GNO-0Q-hHf">
-                                <rect key="frame" x="20" y="44" width="374" height="381"/>
+                                <rect key="frame" x="20" y="43" width="374" height="381"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -62,7 +62,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="PMk-tC-Obx"/>
+                <tapGestureRecognizer id="PMk-tC-Obx">
+                    <connections>
+                        <action selector="tapImage:" destination="BYZ-38-t0r" id="fmD-CZ-aKu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="55.580357142857139"/>
         </scene>
