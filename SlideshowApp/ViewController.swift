@@ -54,6 +54,8 @@ class ViewController: UIViewController {
     //スライドショーに使用するタイマーを宣言
     var timer: Timer!
     
+    @IBOutlet weak var previousButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
     //再生ボタンを押したときの処理
     @IBAction func startButton(_ sender: Any) {
         if (timer == nil) {
@@ -62,6 +64,8 @@ class ViewController: UIViewController {
             timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
                 //ボタンの名前を停止に変える
             startButton.setTitle("停止", for: .normal)
+            previousButton.isEnabled = false
+            nextButton.isEnabled = false
         } else {
                 //停止時の処理を実装
                 //タイマーを停止する
@@ -72,6 +76,8 @@ class ViewController: UIViewController {
                 
                 //ボタンの名前を再生に直しておく
                 startButton.setTitle("再生", for: .normal)
+            previousButton.isEnabled = true
+            nextButton.isEnabled = true
             }
     }
     

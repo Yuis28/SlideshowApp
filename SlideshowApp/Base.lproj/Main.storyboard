@@ -57,6 +57,8 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="GNO-0Q-hHf" id="vwh-XL-WaB"/>
+                        <outlet property="nextButton" destination="cqh-Ku-6xl" id="GWC-hy-Tuw"/>
+                        <outlet property="previousButton" destination="Pne-UR-aGf" id="HRh-tE-UT7"/>
                         <outlet property="startButton" destination="ZS7-AO-BgP" id="LQR-Qf-IXq"/>
                         <segue destination="lJk-Ce-C1H" kind="show" identifier="result" id="omo-00-8Xf"/>
                     </connections>
